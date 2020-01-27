@@ -1,5 +1,7 @@
 {
   "name": "loginForm",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

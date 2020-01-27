@@ -12,18 +12,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
 import { AuthenticateService } from './services/authentication.service';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { Dialogs } from '@ionic-native/dialogs/ngx';
+
 
 import * as firebase from 'firebase';
+ firebase.initializeApp(environment.firebase);
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireAuthModule],
+	declarations: [AppComponent],
+	entryComponents: [],
+	imports: [
+		BrowserModule,
+		IonicModule.forRoot(),
+		AppRoutingModule,
+		AngularFireAuthModule,
+		AngularFirestoreModule,
+		AngularFireModule.initializeApp(environment.firebase),
+	],
   providers: [
     StatusBar,
     SplashScreen,
-    AuthenticateService,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+	AuthenticateService,
+	Dialogs,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: FirestoreSettingsToken, useValue: {} }
   ],
   bootstrap: [AppComponent]
 })

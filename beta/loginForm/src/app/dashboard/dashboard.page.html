@@ -4,25 +4,33 @@
   </ion-toolbar>
 </ion-header>
  
-<ion-content padding>
- 
+<ion-content class="ion-padding">
+   
+	<ion-list>
+		<ion-item *ngFor="let f of frigos | async">
+			  <ion-label>{{ f.title }} - <strong>{{ f.expired_date }}</strong></ion-label>
+		</ion-item>
+	</ion-list>
+<!--* 1000 | date : 'MMMM d, y, h:mm:ss' -->
+	<ion-footer (click)="addItem(title, date)">
+		<ion-toolbar color="secondary">
+			<ion-title>aggiungi</ion-title>
+		</ion-toolbar>
+	</ion-footer>
+
   <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        Welcome to Dashboard!
-      </ion-col>
-    </ion-row>
     <ion-row>
       <ion-col text-center>
         Your Registered EmailID : {{userEmail}}
       </ion-col>
     </ion-row>
   </ion-grid>  
-  
+
   
 </ion-content>
+
 <ion-footer (click)="logout()">
-  <ion-toolbar color="secondary">
-    <ion-title>Log out</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="secondary">
+		<ion-title>Log out</ion-title>
+	</ion-toolbar>
 </ion-footer>
