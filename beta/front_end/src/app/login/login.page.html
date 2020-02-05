@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary"><ion-img [src]="'assets/logo_bianco.png/'"></ion-img></ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="dot"><ion-img [src]="'assets/User_PerApp.png/'"></ion-img></div>
+    <ion-text class="ion-text-center" color="primary"><h5>Login to continue</h5></ion-text>
+    <form class="form">
+    <ion-item>
+      <ion-label position="floating" color="primary">
+        Email
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Password</ion-label>
+      <ion-input type="password" class="form-controll"></ion-input>
+    </ion-item>
+    <ion-button class="submit-btn" type="submit">Log In</ion-button>
+  </form>
+  <p class="ion-text-center">
+    Don't have account? <a (click)="goToRegisterPage()">Sign up</a>
+  </p>
+</ion-content>
