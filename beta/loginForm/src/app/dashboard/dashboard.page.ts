@@ -31,8 +31,9 @@ export class DashboardPage implements OnInit {
 		
 	}
 
-	ngOnInit(){
-		if(this.authService.userDetails()){
+	ngOnInit() {
+		console.log('init');
+		if ( this.authService.userDetails() ) {
 			this.userEmail = this.authService.userDetails().email;
 		}else{
 			this.navCtrl.navigateBack('');
@@ -67,8 +68,8 @@ export class DashboardPage implements OnInit {
 	async addItemNoNative() {
 
 		const prompt = await this.alertCtrl.create({
-			header: 'Ionic2Do',
-			message: "Aggiungi un task",
+			header: 'Il tuo frigorifero',
+			message: "Aggiungi un prodotto e la data di scadenza",
 			inputs: [
 				{
 					name: 'title',
@@ -88,18 +89,23 @@ export class DashboardPage implements OnInit {
 			}, {
 				text: 'Add',
 				handler: data => {
-					this.frigoService.addFrigo( { title: data.title, expired_date: data.date } );
+					this.frigoService.addFrigo( {
+						title: data.title,
+						expired_date: data.date
+					});
 				}
-			}]
+			}]  
 		});
+
 		await prompt.present();
 	}
 
 	logout() {
 		this.authService
-		.logoutUser()
+			.logout()
 			.then(res => {
 				console.log(res);
+				this.frigos = null;
 				this.navCtrl.navigateBack('');
 			})
 			.catch(error => {
