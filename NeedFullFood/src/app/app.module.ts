@@ -6,17 +6,20 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
-import { environment } from '../environments/environment';
+import { environment } from 'src/environments/environment';
+import { AuthenticateService } from './services/authentication.service';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { Dialogs } from '@ionic-native/dialogs/ngx';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 firebase.initializeApp(environment.firebase);
 
 import * as firebase from 'firebase';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,10 +27,15 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [BrowserModule, 
             IonicModule.forRoot(), 
             AppRoutingModule,
-            AngularFirestoreModule],    
+            AngularFirestoreModule,
+            AngularFireAuthModule,
+            FormsModule,
+            ReactiveFormsModule],    
   providers: [
     StatusBar,
     SplashScreen,
+    AuthenticateService,
+	  Dialogs,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: FirestoreSettingsToken, useValue: {} }
   ],
