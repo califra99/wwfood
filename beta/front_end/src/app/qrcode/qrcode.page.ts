@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QrcodePage implements OnInit {
 
+  qrResultString: string;
+
+  clearResult(): void {
+    this.qrResultString = null;
+  }
+
+  onCodeResult(resultString: string) {
+    this.qrResultString = resultString;
+  }
+
   constructor() { }
 
   ngOnInit() {
