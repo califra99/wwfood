@@ -9,9 +9,16 @@
 
   <section class="results" *ngIf="qrResultString">
     <div>
-      <button mat-icon-button (click)="clearResult()">&times;</button>
-      <small>Result</small>
-      <strong>{{ qrResultString }}</strong> 
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-button mat-icon-button (click)="clearResult()" style="margin-left: 85%;">&times;</ion-button>
+          <ion-card-subtitle>Scadenza:</ion-card-subtitle>
+          <ion-card-title>{{ qrResultString }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button style="background-color: #027BC2;">Conferma</ion-button>
+        </ion-card-content>
+      </ion-card> 
     </div>
   </section>
 </ion-content>
