@@ -58,8 +58,8 @@ export class RegisterPage implements OnInit {
      })
   }
  
-  goLoginPage(){
-    this.navCtrl.navigateBack('');
+  goToLoginPage(){
+    this.navCtrl.navigateForward('');
   }
  
  

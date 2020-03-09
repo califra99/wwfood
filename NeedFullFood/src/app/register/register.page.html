@@ -44,13 +44,15 @@
 			</ng-container>
 		</div>
 
-		<ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="goLoginPage()">Register</ion-button>
+		<ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="goToLoginPage()" color="tertiary" >Register</ion-button>
 		<label class="error-message">{{errorMessage}}</label>
-		<label class="success-message">{{successMessage}}</label>
+		<label class="success-message">{{successMessage}}</label>  
   
 	</form>
 
-<!-- <p class="go-to-login">Already have an account? <a (click)="goLoginPage()">Try to Log In.</a></p> -->
+	<p class="ion-text-center">
+		You already have an account? <a (click)="goToLoginPage()" style="color: #fff;">Sign in</a>
+	</p>
 
     
 
