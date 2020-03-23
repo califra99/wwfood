@@ -1,26 +1,21 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+import { IonicModule } from '@ionic/angular';
+
 import { Tab2Page } from './tab2.page';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-
-
-
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 @NgModule({
-	imports: [
-		IonicModule,
-		CommonModule,
-		FormsModule,
-		RouterModule.forChild([{ path: '', component: Tab2Page }]),
-		CalendarModule.forRoot({
-			provide: DateAdapter,
-			useFactory: adapterFactory
-		})
-	],
-	declarations: [Tab2Page]
+  imports: [
+    CommonModule,
+    RouterModule.forChild([{ path: '', component: Tab2Page }]),
+    FormsModule,
+    IonicModule,
+    ZXingScannerModule,
+  ],
+  declarations: [Tab2Page]
 })
 export class Tab2PageModule {}

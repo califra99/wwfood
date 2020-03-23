@@ -1,33 +1,13 @@
-@font-face {
-    font-family: 'raleway';
-    src: url('../../assets/fonts/Raleway-Regular.ttf');
-}
-
-  @font-face {
-    font-family: 'comfortaa';
-    src: url('../../assets/fonts/Comfortaa-Bold.ttf');
-}
-
-ion-card {
-    border: 2px solid #027BC2;
-}
-
-ion-title {
-    text-align: center;
-}
-
-ion-card-subtitle {
-    text-align: center; 
-    font-family: 'raleway';
-}
-
-ion-card-title {
-    text-align: center;
-    font-family: 'raleway';
-}
 
 ion-button {
-    margin-left: 30%;
-    font-family: 'comfortaa';
-    border-radius: 5px;
-}
+    width: 100px;
+  }
+  
+  .button {
+    text-align: center;
+  }
+  
+  .col-md-4 h3 {
+    text-align: center;
+    text-transform: capitalize;
+  }

@@ -1,28 +1,57 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>QR Code</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title>
+			Calendario
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
 
-  <section class="results" *ngIf="qrResultString">
-    <div>
-      <ion-card color="light">
-        <ion-card-header>
-          <ion-button mat-icon-button (click)="clearResult()" style="margin-left: 85%;">&times;</ion-button>
-          <ion-card-subtitle>Scadenza:</ion-card-subtitle>
-          <ion-card-title>{{ qrResultString }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-button (click)="createProduct()" style="background-color: #027BC2;">Conferma</ion-button>
-        </ion-card-content>
-      </ion-card> 
-    </div>
-  </section>
+	<div class="button">
+		<ion-button
+			class="btn btn-secondary"
+			color="secondary"
+			mwlCalendarPreviousView
+			[view]="view"
+			[(viewDate)]="viewDate"
+			(viewDateChange)="closeOpenMonthViewDay()"
+		>
+			Previous
+		</ion-button>
+		<ion-button
+			class="btn btn-secondary"
+			color="secondary"
+			mwlCalendarNextView
+			[view]="view"
+			[(viewDate)]="viewDate"
+			(viewDateChange)="closeOpenMonthViewDay()"
+		>
+			Next
+		</ion-button>
+		<br>
+	</div>
+
+		<div class="col-md-4">
+		  <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+		</div>
+
+		<br />
+
+	  <div [ngSwitch]="view">
+
+		<mwl-calendar-month-view
+      *ngSwitchCase="CalendarView.Month"
+			[viewDate]="viewDate"
+			[events]="events"
+			[refresh]="refresh"
+			[activeDayIsOpen]="activeDayIsOpen"
+			(dayClicked)="dayClicked($event.day)"
+			(eventClicked)="handleEvent('Clicked', $event.event)"
+			(eventTimesChanged)="eventTimesChanged($event)"
+			>
+		</mwl-calendar-month-view>
+
+	  </div>
+
 </ion-content>
-
-<!-- <button mat-icon-button (click)="clearResult()">&times;</button>
-<small>Result</small>
-<strong>{{ qrResultString }}</strong> -->
