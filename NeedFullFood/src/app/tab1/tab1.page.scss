@@ -1,9 +1,14 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+ion-card-subtitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.taskDone {
-  font-weight: bold;
-  text-decoration: line-through;
+ion-card-subtitle h4 {
+  border-bottom: 1px solid blue;
+}
+
+ion-card-content {
+  background-color: #f4f5f8;
 }

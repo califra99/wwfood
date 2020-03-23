@@ -1,5 +1,5 @@
 export interface Frigo {
-	id: string;
+	id?: string;
 	title: string;
 	expired_date: string;
 }

@@ -16,6 +16,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import * as firebase from 'firebase';
@@ -32,6 +33,7 @@ firebase.initializeApp(environment.firebase);
             AngularFireAuthModule,
             FormsModule,
             ReactiveFormsModule,
+            BrowserAnimationsModule,
             AngularFireModule.initializeApp(environment.firebase),],    
   providers: [
     StatusBar,
