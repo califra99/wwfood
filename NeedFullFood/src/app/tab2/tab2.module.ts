@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { Tab2Page } from './tab2.page';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
+
 @NgModule({
   imports: [
     CommonModule,
