@@ -5,6 +5,7 @@ import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Frigo } from '../../models/frigo';
 
+
 @Injectable({
 	providedIn: 'root'
 })

@@ -7,6 +7,7 @@ import { Tab1Page } from './tab1.page';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
+
 @NgModule({
   imports: [
     IonicModule,

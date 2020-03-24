@@ -27,61 +27,19 @@
 	  <ion-card-content>
 		<h5>In scadenza:</h5>
   
-		<ion-list>
-		  <ion-item-sliding>
-			<ion-item class="ion_item">
-			  <ion-label>Mozzarella</ion-label>
+		
+		  <ion-item-sliding *ngFor="let f of frigos | async">
+			<ion-item class="ion_item" >
+			  <ion-label>{{ f.title }}</ion-label>
 			</ion-item>
-			<ion-item-options side="end">
-			  <ion-item-option><ion-icon name="trash"></ion-icon></ion-item-option>
+			<ion-item-options side="end"
+				(ionSwipe)="delete(f, f)">
+				<ion-item-option (click)="delete(f, f)"
+									expandable
+									color="danger">Elimina</ion-item-option>
 			</ion-item-options>
 		  </ion-item-sliding>
-	  
-		  <ion-item-sliding>
-			<ion-item>
-			  <ion-label>Prosciutto cotto</ion-label>
-			</ion-item>
-			<ion-item-options side="end">
-			  <ion-item-option><ion-icon name="trash"></ion-icon></ion-item-option>
-			</ion-item-options>
-		  </ion-item-sliding>
-  
-		  <ion-item-sliding>
-			<ion-item>
-			  <ion-label>Ricotta</ion-label>
-			</ion-item>
-			<ion-item-options side="end">
-			  <ion-item-option large><ion-icon name="trash"></ion-icon></ion-item-option>
-			</ion-item-options>
-		  </ion-item-sliding>
-  
-		  <ion-item-sliding>
-			<ion-item>
-			  <ion-label>Latte</ion-label>
-			</ion-item>
-			<ion-item-options side="end">
-			  <ion-item-option large><ion-icon name="trash"></ion-icon></ion-item-option>
-			</ion-item-options>
-		  </ion-item-sliding>
-  
-		  <ion-item-sliding>
-			<ion-item>
-			  <ion-label>Pomodoro</ion-label>
-			</ion-item>
-			<ion-item-options side="end">
-			  <ion-item-option large><ion-icon name="trash"></ion-icon></ion-item-option>
-			</ion-item-options>
-		  </ion-item-sliding>
-  
-		  <ion-item-sliding>
-			<ion-item>
-			  <ion-label>Yogurt</ion-label>
-			</ion-item>
-			<ion-item-options side="end">
-			  <ion-item-option large><ion-icon name="trash"></ion-icon></ion-item-option>
-			</ion-item-options>
-		  </ion-item-sliding>
-		</ion-list>
+		
 	  </ion-card-content>
 	</ion-card>
   </ion-content>
