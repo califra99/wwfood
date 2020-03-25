@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'slider',
     loadChildren: () => import('./slider/slider.module').then( m => m.SliderPageModule)
   },
+  {
+    path: 'qr-code',
+    loadChildren: () => import('./qr-code/qr-code.module').then( m => m.QrCodePageModule)
+  },
 ];
 @NgModule({
   imports: [

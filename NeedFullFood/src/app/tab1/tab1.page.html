@@ -28,13 +28,13 @@
 		<h5>In scadenza:</h5>
   
 		
-		  <ion-item-sliding *ngFor="let f of frigos | async">
+		  <ion-item-sliding *ngFor="let f of frigos | async" #product>
 			<ion-item class="ion_item" >
 			  <ion-label>{{ f.title }}</ion-label>
 			</ion-item>
 			<ion-item-options side="end"
-				(ionSwipe)="delete(f, f)">
-				<ion-item-option (click)="delete(f, f)"
+				(ionSwipe)="delete(product, f)">
+				<ion-item-option (click)="delete(product, f)"
 									expandable
 									color="danger">Elimina</ion-item-option>
 			</ion-item-options>

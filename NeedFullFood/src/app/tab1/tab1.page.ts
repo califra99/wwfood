@@ -42,12 +42,13 @@ export class Tab1Page {
   }
   
 
-  delete(slidingItem: IonItemSliding, frigo: any) {
+  delete(slidingProduct: IonItemSliding, frigo: any) {
     this.frigoService.deleteFrigo( frigo.id ).then(() => {
-        console.log('Task cancellato');
+        console.log('Product cancellato');
     }, err => {
-        console.log('Problema nel cancellare il task');
+        console.log('Problema nel cancellare il product');
     });
+    slidingProduct.close();
 }
 
 

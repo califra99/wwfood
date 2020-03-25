@@ -36,7 +36,6 @@ export class FrigoService {
 	}
 
 	createProduct(qrcodeDecodedString: string) {
-		//let newProductData = "{\n  \"title\": \"Grana Padano\",\n  \"expire_date\": \"2020-04-22\"\n}";
 
 		let newProduct = JSON.parse(qrcodeDecodedString);
 

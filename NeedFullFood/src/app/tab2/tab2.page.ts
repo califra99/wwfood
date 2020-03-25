@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FrigoService } from '../services/frigo.service';
 
+import { Dialogs } from '@ionic-native/dialogs/ngx';
+import { AlertController } from '@ionic/angular';
+
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: './tab2.page.html',
@@ -8,31 +13,70 @@ import { FrigoService } from '../services/frigo.service';
 })
 export class Tab2Page implements OnInit {
 
-  qrResultString: string;
-
-  clearResult(): void {
-    this.qrResultString = null;
-  }
-
-  onCodeResult(resultString: string) {
-    this.qrResultString = resultString;
-  }
+  
 
   constructor(
-    private frigoService: FrigoService
-  ) {}
+		private frigoService: FrigoService,
+		public dialogs: Dialogs,
+		public alertCtrl: AlertController,
+		private navCtrl: NavController,
+  ) { }
 
   ngOnInit() {
   }
 
-  async createProduct(){
-    // Usa queste per creare uno spinner di caricamento
-    // che dice "Sto creando l'elemento"
-    //this.isLoading = true;
-    console.log("Sto creando l'elemeno");
-    let result = await this.frigoService.createProduct(this.qrResultString);
-    console.log(result);
-    //this.isLoading = false;
-  }
+  public addItem() {
+		this.dialogs.prompt('Aggiungi un item', 'ionic2do', ['OK', 'Annulla'], '')
+			.then(result => {
+				if ( result.buttonIndex == 1 && result.input1 !== '' ) {
+					this.frigoService.addFrigo( { title: result.input1, expired_date: "" } );
+				}
+			});
+
+			if ( window.cordova ) {
+				// Native Dialog
+			} else {
+				this.addItemNoNative();
+			}
+
+	}
+
+	
+	async addItemNoNative() {
+
+		const prompt = await this.alertCtrl.create({
+			header: 'Il tuo frigorifero',
+			message: "Aggiungi un prodotto e la data di scadenza",
+			inputs: [
+				{
+					name: 'title',
+					placeholder: 'title'
+				},
+				{
+					name: 'date',
+					placeholder: 'date'
+				},
+			],
+			
+			buttons: [{
+				text: 'Annulla',
+			}, {
+				text: 'Add',
+				handler: data => {
+					this.frigoService.addFrigo( {
+						title: data.title,
+						expired_date: data.date
+					});
+				}
+			}]  
+		});
+
+		await prompt.present();
+	}
+
+	
+	goToQrCodePage(){
+		this.navCtrl.navigateForward('/qr-code');
+	}
 
 }

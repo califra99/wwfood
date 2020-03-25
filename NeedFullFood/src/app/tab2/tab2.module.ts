@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { Tab2Page } from './tab2.page';
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
 
 
 @NgModule({
@@ -14,8 +14,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     CommonModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }]),
     FormsModule,
-    IonicModule,
-    ZXingScannerModule,
+    IonicModule
   ],
   declarations: [Tab2Page]
 })
