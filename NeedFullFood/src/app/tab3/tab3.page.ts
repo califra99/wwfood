@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';	
 
 import {
 	startOfDay,
@@ -29,6 +29,7 @@ const colors: any = {
 	  primary: '#D9D7D8'
 	}
   };
+
 
 @Component({
 	selector: 'app-tab3',
@@ -90,6 +91,7 @@ export class Tab3Page {
 
 	constructor() {}
 
+  
 	dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
 		if (isSameMonth(date, this.viewDate)) {
 		  if (

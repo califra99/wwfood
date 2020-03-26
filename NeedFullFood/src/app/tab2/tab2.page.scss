@@ -11,3 +11,12 @@ ion-card-subtitle{
   text-align: center;
 }
 
+ion-card{
+  position: fixed;
+  top: 50%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  min-width: 90%;
+  background-color: white;
+}
+

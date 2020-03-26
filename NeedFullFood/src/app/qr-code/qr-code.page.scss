@@ -27,7 +27,37 @@
   }
   
   ion-button {
-    margin-left: 30%;
+  
     font-family: 'comfortaa';
     border-radius: 5px;
+  }
+
+  ion-icon {
+    margin-right: 50px;
+  }
+
+  ion-text{
+    padding-bottom: 5px;
+    border-bottom: 1px white solid;
+  }
+
+  span{
+    background-color: rgb(4, 252, 4);
+    opacity: 0.9;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    position: fixed;
+    top: 89%;
+    left:7%; 
+  }
+
+  a{
+    outline: none;
+    font-style: underline;
+    color: white;
+  }
+
+  div.row{
+    display: flex;
   }
