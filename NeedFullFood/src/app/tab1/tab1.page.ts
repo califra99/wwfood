@@ -20,6 +20,7 @@ export class Tab1Page {
   view: CalendarView = CalendarView.Day;
 	CalendarView = CalendarView;
   viewDate: Date = new Date();
+
   userEmail: string;
   private frigos: Observable<Frigo[]>;
 

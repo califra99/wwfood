@@ -1,21 +1,21 @@
-<ion-header>
-	<ion-toolbar color="primary">
-	  <ion-title color="light">
-		Il tuo frigo
-	  </ion-title>
-	</ion-toolbar>
-  </ion-header>
   <ion-content color="primary">
-	<ion-card color="light">
+	<ion-toolbar color="primary" class="ion-text-center">
+		<ion-title>
+		  IL TUO FRIGO
+		</ion-title>
+	  </ion-toolbar>
+	<ion-card>
 	  <ion-card-header>
 		<ion-card-subtitle class="ion-text-center">
-		  <ion-icon name="arrow-back"
+		  <ion-icon name="arrow-back" 
 			mwlCalendarPreviousView
 			[view]="view"
 			[(viewDate)]="viewDate"
 			>
 		  </ion-icon>
-		  <h4>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h4>
+		  <ion-text color="dark">
+			<h4>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' |  date:'d MMMM y' }}</h4>
+		  </ion-text>
 		  <ion-icon name="arrow-forward"
 			mwlCalendarNextView
 			[view]="view"
@@ -25,11 +25,12 @@
 	  </ion-card-header>
   
 	  <ion-card-content>
-		<h5>In scadenza:</h5>
-  
+		<ion-text color="dark">
+			<h2>In scadenza:</h2> 
+		  </ion-text>
 		
 		  <ion-item-sliding *ngFor="let f of frigos | async" #product>
-			<ion-item class="ion_item" >
+			<ion-item class="ion_item" lines="none">
 			  <ion-label>{{ f.title }}</ion-label>
 			</ion-item>
 			<ion-item-options side="end"
