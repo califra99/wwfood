@@ -1,14 +1,7 @@
 ion-button {
-  width: 100%;
-  
-}
-
-ion-card-title{
-  text-align: center;
-}
-
-ion-card-subtitle{
-  text-align: center;
+  --background: #ffffff;
+  color: black;
+  border-top: 1px solid #3880ff;
 }
 
 ion-card{
@@ -16,7 +9,7 @@ ion-card{
   top: 50%;
   left: 47%;
   transform: translate(-50%, -50%);
-  min-width: 90%;
   background-color: white;
+  border-radius: 30px;
 }
 

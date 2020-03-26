@@ -54,7 +54,8 @@ export class Tab2Page implements OnInit {
 				},
 				{
 					name: 'date',
-					placeholder: 'date'
+					placeholder: 'date',
+					type: 'date'
 				},
 			],
 			
