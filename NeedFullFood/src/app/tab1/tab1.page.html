@@ -10,6 +10,7 @@
 		  <ion-icon name="arrow-back" 
 			mwlCalendarPreviousView
 			[view]="view"
+			(click)="loadItems()"
 			[(viewDate)]="viewDate"
 			>
 		  </ion-icon>
@@ -19,6 +20,7 @@
 		  <ion-icon name="arrow-forward"
 			mwlCalendarNextView
 			[view]="view"
+			(click)="loadItems()"
 			[(viewDate)]="viewDate">
 		  </ion-icon>
 		</ion-card-subtitle>
@@ -29,7 +31,7 @@
 			<h2>In scadenza:</h2> 
 		  </ion-text>
 		
-		  <ion-item-sliding *ngFor="let f of frigos | async" #product>
+		  <ion-item-sliding *ngFor="let f of frigos" #product>
 			<ion-item class="ion_item" lines="none">
 			  <ion-label>{{ f.title }}</ion-label>
 			</ion-item>
@@ -39,9 +41,9 @@
 									expandable
 									color="danger">Elimina</ion-item-option>
 			</ion-item-options>
-		  </ion-item-sliding>
-		
+		  </ion-item-sliding>  
 	  </ion-card-content>
 	</ion-card>
+	<span class="logout">Vuoi uscire dal tuo frigo? <a (click)="logout()">Clicca qui</a></span>
   </ion-content>
   

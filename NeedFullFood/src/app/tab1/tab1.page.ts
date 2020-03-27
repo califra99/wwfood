@@ -22,7 +22,7 @@ export class Tab1Page {
   viewDate: Date = new Date();
 
   userEmail: string;
-  private frigos: Observable<Frigo[]>;
+  private frigos: Frigo[];
 
   constructor(
     private navCtrl: NavController,
@@ -36,15 +36,21 @@ export class Tab1Page {
 			this.userEmail = this.authService.userDetails().email;
 		}else{
 			this.navCtrl.navigateBack('');
-		}
+    }
 
-		this.frigos = this.frigoService.getFrigos();
+    this.loadItems();
+  }
 
+  loadItems() {
+    this.frigos = this.frigoService.getFrigosbyDate(this.viewDate);
   }
   
+  
+
 
   delete(slidingProduct: IonItemSliding, frigo: any) {
     this.frigoService.deleteFrigo( frigo.id ).then(() => {
+      this.loadItems();
         console.log('Product cancellato');
     }, err => {
         console.log('Problema nel cancellare il product');
@@ -52,5 +58,17 @@ export class Tab1Page {
     slidingProduct.close();
 }
 
+logout() {
+  this.authService
+    .logout()
+    .then(res => {
+      console.log(res);
+      this.frigos = null;
+      this.navCtrl.navigateBack('');
+    })
+    .catch(error => {
+      console.log(error);
+    })
+}
 
 }

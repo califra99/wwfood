@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
 import * as firebase from 'firebase/app';
 import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Frigo } from '../../models/frigo';
+import { Frigo } from '../../models/frigo';	
 
 
 @Injectable({
@@ -48,9 +48,38 @@ export class FrigoService {
 		});
 	}
 
-	getFrigos(): Observable<Frigo[]> {
+	getFrigos(): Frigo[] {
+		this.initCollection();	
+
+		let filteredProducts = [];
+
+		this.frigos.forEach(products => {
+				products.forEach(item => {
+					console.log(item);
+					filteredProducts.push(item);
+				});
+			});
+
+		return filteredProducts;
+	}
+
+	getFrigosbyDate(date): Frigo[] {
 		this.initCollection();
-		return this.frigos;
+		let newDate = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
+		let filteredProducts = [];
+
+		console.log(newDate);
+		this.frigos.forEach(products => {
+				products.forEach(item => { 
+					let expire_date = new Date(parseFloat(item.expired_date) * 1000);
+					let expire_date_str = expire_date.getDate() + "-" + expire_date.getMonth() + "-" + expire_date.getFullYear();
+					if (expire_date_str == newDate) {
+						filteredProducts.push(item);
+					}
+				});
+			});
+
+		return filteredProducts;
 	}
 
 	addFrigo(frigo: any): Promise<any> {
