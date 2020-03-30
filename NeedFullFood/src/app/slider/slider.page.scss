@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../../assets/fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../../assets/fonts/Comfortaa-Bold.ttf');
+}
+
 ion-slide{
     min-height: 100vh;
     display: flex;
@@ -10,15 +20,18 @@ img{
 }
 
 h1{
+    font-family: 'Comfortaa';
     font-weight: bold;
     color: white;
 }
 
 h2{
+    font-family: 'Raleway';
     color: white;
 }
 
 button{
+    font-family: 'Raleway';
     background-color: white;
     color: #03d977;
     font-size: large;
