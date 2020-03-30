@@ -41,7 +41,6 @@ export class LoginPage implements OnInit {
 		this.authService
 			.login(value)
 			.then(res => {
-				console.log(res);
 				this.errorMessage = '';
 				this.navCtrl.navigateForward('/tabs');
 			}, err => {

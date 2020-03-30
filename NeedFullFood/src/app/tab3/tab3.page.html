@@ -1,40 +1,27 @@
-<ion-header>
-	<ion-toolbar>
-		<ion-title>
-			Calendario
-		</ion-title>
-	</ion-toolbar>
-</ion-header>
 
 <ion-content>
-
-	<div class="button">
-		<ion-button
-			class="btn btn-secondary"
-			color="secondary"
-			mwlCalendarPreviousView
-			[view]="view"
-			[(viewDate)]="viewDate"
-		>
-			Previous
-		</ion-button>
-		<ion-button
-			class="btn btn-secondary"
-			color="secondary"
-			mwlCalendarNextView
-			[view]="view"
-			[(viewDate)]="viewDate"
-		>
-			Next
-		</ion-button>
-		<br>
-	</div>
-
-		<div class="col-md-4">
+		<div class="month">
+			<ion-icon  name="arrow-back" 
+				class="btn btn-secondary"
+				color="secondary"
+				mwlCalendarPreviousView
+				[view]="view"
+				[(viewDate)]="viewDate"
+			>
+				
+			</ion-icon>
 		  <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+		  <ion-icon name="arrow-forward"
+				class="btn btn-secondary"
+				color="secondary"
+				mwlCalendarNextView
+				[view]="view"
+				[(viewDate)]="viewDate"
+			>
+			</ion-icon>
 		</div>
 
-		<br />
+		
 
 	  <div [ngSwitch]="view">
 
@@ -49,7 +36,5 @@
 			(eventTimesChanged)="eventTimesChanged($event)"
 			>
 		</mwl-calendar-month-view>
-
 	  </div>
-
 </ion-content>

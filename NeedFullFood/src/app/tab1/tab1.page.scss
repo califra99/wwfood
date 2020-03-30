@@ -5,6 +5,7 @@ ion-title {
 ion-card {
   border-radius: 30px;
   background-color: var(--ion-color-primary-contrast);
+  min-height: 80%;
 }
 
 ion-card-subtitle {
@@ -46,4 +47,10 @@ ion-item-sliding {
 .logout a{
   color: white;
   border-bottom: 1px solid white;
+}
+
+.empty{
+  margin-top: 10px;
+  margin-left: 19px;
+  font-size: large;
 }

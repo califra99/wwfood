@@ -13,6 +13,7 @@ export class FrigoService {
 
 	private frigos: Observable<Frigo[]>;
 	private frigoCollection: AngularFirestoreCollection<Frigo>;
+	filteredProducts = [];
 
     constructor(
 		private afs: AngularFirestore
@@ -20,8 +21,6 @@ export class FrigoService {
 	}
 	
 	initCollection() {
-		console.log('recupera prodotti frigo utente', firebase.auth().currentUser.uid);
-
 		this.frigoCollection = this.afs.collection<Frigo>('frigos-' + firebase.auth().currentUser.uid );
 
 		this.frigos = this.frigoCollection.snapshotChanges().pipe(
@@ -48,28 +47,13 @@ export class FrigoService {
 		});
 	}
 
-	getFrigos(): Frigo[] {
-		this.initCollection();	
-
-		let filteredProducts = [];
-
-		this.frigos.forEach(products => {
-				products.forEach(item => {
-					console.log(item);
-					filteredProducts.push(item);
-				});
-			});
-
-		return filteredProducts;
-	}
-
-	getFrigosbyDate(date): Frigo[] {
+	getFrigosbyDate(date): Promise<Frigo[]> {
 		this.initCollection();
-		let newDate = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
 		let filteredProducts = [];
+		let newDate = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
 
-		console.log(newDate);
-		this.frigos.forEach(products => {
+		let promise = new Promise<Frigo[]>((resolve, reject) => {
+			this.frigos.forEach(products => {
 				products.forEach(item => { 
 					let expire_date = new Date(parseFloat(item.expired_date) * 1000);
 					let expire_date_str = expire_date.getDate() + "-" + expire_date.getMonth() + "-" + expire_date.getFullYear();
@@ -77,9 +61,29 @@ export class FrigoService {
 						filteredProducts.push(item);
 					}
 				});
-			});
 
-		return filteredProducts;
+				resolve(filteredProducts);
+			});
+		});
+
+		return promise;
+
+	}
+
+	getProductByDay(): Promise<Frigo[]> {
+		this.initCollection();
+		let dateProducts = [];
+		
+		let promise = new Promise<Frigo[]>((resolve, reject) => {
+			this.frigos.forEach(products => {
+				products.forEach(item => { 
+					dateProducts.push(item);
+				});
+				resolve(dateProducts);
+			});
+		});
+
+		return promise;
 	}
 
 	addFrigo(frigo: any): Promise<any> {

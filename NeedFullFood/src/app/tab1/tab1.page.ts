@@ -20,6 +20,7 @@ export class Tab1Page {
   view: CalendarView = CalendarView.Day;
 	CalendarView = CalendarView;
   viewDate: Date = new Date();
+  isEmpty: boolean;
 
   userEmail: string;
   private frigos: Frigo[];
@@ -31,18 +32,21 @@ export class Tab1Page {
   ) {}
 
   ngOnInit() {
-		console.log('init');
 		if ( this.authService.userDetails() ) {
-			this.userEmail = this.authService.userDetails().email;
-		}else{
+      this.userEmail = this.authService.userDetails().email;
+      this.loadItems();
+		} else {
 			this.navCtrl.navigateBack('');
     }
-
-    this.loadItems();
   }
 
-  loadItems() {
-    this.frigos = this.frigoService.getFrigosbyDate(this.viewDate);
+  async loadItems() {
+    this.frigos = await this.frigoService.getFrigosbyDate(this.viewDate);
+    if(this.frigos.length == 0){
+      this.isEmpty=true;
+    } else {
+      this.isEmpty=false;
+    }
   }
   
   

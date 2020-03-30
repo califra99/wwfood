@@ -64,10 +64,12 @@ export class Tab2Page implements OnInit {
 			}, {
 				text: 'Add',
 				handler: data => {
+					let expired_date = Math.round((new Date(data.date)).getTime() / 1000);
 					this.frigoService.addFrigo( {
 						title: data.title,
-						expired_date: data.date
+						expired_date: expired_date
 					});
+			
 				}
 			}]  
 		});

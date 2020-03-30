@@ -1,13 +1,14 @@
 
-ion-button {
+ion-icon {
     width: 100px;
   }
   
-  .button {
-    text-align: center;
-  }
   
-  .col-md-4 h3 {
-    text-align: center;
+
+  .month{
+    display: flex;
     text-transform: capitalize;
+    justify-content: space-around;
+    align-items: center;
+    height: 43px;
   }
