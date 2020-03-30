@@ -1,4 +1,23 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('../../assets/fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../../assets/fonts/Comfortaa-Bold.ttf');
+}
+
+ion-card-title {
+  font-family: 'Comfortaa';
+}
+
+ion-card-subtitle {
+  font-family: 'Raleway';
+}
+
 ion-button {
+  font-family: 'Comfortaa';
   width: 100%;
   --background: #ffffff;
   color: black;

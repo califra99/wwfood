@@ -1,4 +1,19 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('../../assets/fonts/Raleway-Regular.ttf');
+}
 
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../../assets/fonts/Comfortaa-Bold.ttf');
+}
+
+ion-title {
+  font-family: 'Comfortaa';
+  text-align: center;
+}
+
+<<<<<<< HEAD
 ion-icon {
     width: 100px;
   }
@@ -12,3 +27,23 @@ ion-icon {
     align-items: center;
     height: 43px;
   }
+=======
+ion-button {
+  font-family: 'Raleway';
+  width: 100px;
+}
+  
+.button {
+  text-align: center;
+}
+  
+.col-md-4 h3 {
+  font-family: 'Comfortaa';
+  text-align: center;
+  text-transform: capitalize;
+}
+
+div {
+  font-family: 'Raleway';
+}
+>>>>>>> 3cfe033efea98c9cd6b4188da19932ea0e64123e

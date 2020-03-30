@@ -1,3 +1,29 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../../assets/fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../../assets/fonts/Comfortaa-Bold.ttf');
+}
+
+ion-text {
+    font-family: 'Comfortaa';
+}
+
+ion-label {
+    font-family: 'Comfortaa';
+}
+
+ion-input {
+    font-family: 'Raleway';
+}
+
+p {
+    font-family: 'Comfortaa';
+}
+
 ion-header {
     height: 30%;
     margin-bottom: -15%;
@@ -33,6 +59,7 @@ ion-toolbar ion-img {
 }
 
 ion-button {
+    font-family: 'Raleway';
     display: flex;
     justify-content: center;
     background-color: white;

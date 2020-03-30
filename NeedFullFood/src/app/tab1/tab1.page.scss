@@ -1,4 +1,15 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('../../assets/fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../../assets/fonts/Comfortaa-Bold.ttf');
+}
+
 ion-title {
+  font-family: 'Comfortaa';
   color: var(--ion-color-primary-contrast);
 }
 
@@ -16,10 +27,12 @@ ion-card-subtitle {
 }
 
 ion-card-subtitle h4 {
+  font-family: 'Raleway';
   border-bottom: 1px solid blue;
 }
 
 ion-card-content h2 {
+  font-family: 'Raleway';
   margin-left: 6%;
   font-weight: bold;
   font-size: larger;
@@ -40,7 +53,12 @@ ion-item-sliding {
   border-bottom: 1px solid #3880ff;
 }
 
+ion-label {
+  font-family: 'Raleway';
+}
+
 .logout{
+  font-family: 'Raleway';
   margin-left: 40px;
 }
 
