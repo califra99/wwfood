@@ -33,4 +33,20 @@ ion-card{
   border-radius: 30px;
   min-width: 90%;
 }
+span{
+  background-color: rgb(4, 252, 4);
+  opacity: 0.9;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+  position: fixed;
+  top: 89%;
+  left:7%; 
+}
 
+a{
+  outline: none;
+  font-style: underline;
+  border-bottom: white solid 1px;
+  color: white;
+}

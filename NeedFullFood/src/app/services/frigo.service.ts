@@ -34,17 +34,20 @@ export class FrigoService {
 		);
 	}
 
-	createProduct(qrcodeDecodedString: string) {
+	createProduct(qrcodeDecodedString: string): Promise<any> {
 
 		let newProduct = JSON.parse(qrcodeDecodedString);
 
 		this.frigoCollection = this.afs.collection<Frigo>('frigos-' + firebase.auth().currentUser.uid );
 		let expired_date = Math.round((new Date(newProduct.expire_date)).getTime() / 1000);
-
-		return this.frigoCollection.add({
-			title: newProduct.title,
-			expired_date: expired_date.toString()
+		let promise = new Promise<any>((resolve, reject) => {
+			this.frigoCollection.add({
+				title: newProduct.title,
+				expired_date: expired_date.toString()
+			});
+			resolve(this.frigoCollection);
 		});
+		return promise
 	}
 
 	getFrigosbyDate(date): Promise<Frigo[]> {

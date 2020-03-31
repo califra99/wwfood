@@ -48,7 +48,7 @@ export class Tab3Page {
 	view: CalendarView = CalendarView.Month;
 	CalendarView = CalendarView;
 	viewDate: Date = new Date();
-	userEmail: string;
+	
 	private frigos: Frigo[];
   
 	modalData: {
@@ -71,10 +71,6 @@ export class Tab3Page {
 	) {}
 
 	async ionViewDidEnter() {
-		if (!this.authService.userDetails()) {
-			return;
-		}
-
 		console.log("DidEnter");
 		await this.getDate();
 		console.log("After did enter");
@@ -82,12 +78,7 @@ export class Tab3Page {
 	}
 
 	ngOnInit(){
-		if (this.authService.userDetails() ) {
-			this.userEmail = this.authService.userDetails().email;
-			this.getDate();
-		} else {
-			this.navCtrl.navigateBack('');
-		}
+		this.getDate();
 	}
 
 	async getDate() {

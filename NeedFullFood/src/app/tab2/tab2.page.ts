@@ -12,7 +12,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-
+ isFinished:boolean;
   
 
   constructor(
@@ -21,6 +21,12 @@ export class Tab2Page implements OnInit {
 		public alertCtrl: AlertController,
 		private navCtrl: NavController,
   ) { }
+
+  async ionViewDidEnter() {
+	console.log("DidEnter");
+	this.isFinished=false;
+	console.log("After did enter");
+}
 
   ngOnInit() {
   }
@@ -65,10 +71,15 @@ export class Tab2Page implements OnInit {
 				text: 'Add',
 				handler: data => {
 					let expired_date = Math.round((new Date(data.date)).getTime() / 1000);
+					this.isFinished = false;
 					this.frigoService.addFrigo( {
 						title: data.title,
 						expired_date: expired_date
 					});
+					this.isFinished = true;
+					setTimeout(function(){
+					  this.isFinished = false;
+					})
 			
 				}
 			}]  
@@ -81,5 +92,9 @@ export class Tab2Page implements OnInit {
 	goToQrCodePage(){
 		this.navCtrl.navigateForward('/qr-code');
 	}
+
+	goToTuoFrigo(){
+		this.navCtrl.navigateForward('/tabs/tab1');
+	  }
 
 }

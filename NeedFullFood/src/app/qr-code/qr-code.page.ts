@@ -41,12 +41,13 @@ export class QrCodePage implements OnInit {
     // Usa queste per creare uno spinner di caricamento
     // che dice "Sto creando l'elemento"
     this.isFinished = false;
-    console.log("Sto creando l'elemeno");
     let result = await this.frigoService.createProduct(this.qrResultString);
-    console.log(result);
     this.isFinished = true;
+    setTimeout(function(){
+      this.isFinished = false;
+    })
   }
-
+  
   goToTuoFrigo(){
     this.navCtrl.navigateForward('/tabs/tab1');
   }

@@ -22,7 +22,6 @@ export class Tab1Page {
   viewDate: Date = new Date();
   isEmpty: boolean;
 
-  userEmail: string;
   private frigos: Frigo[];
 
   constructor(
@@ -31,13 +30,14 @@ export class Tab1Page {
 		private frigoService: FrigoService,
   ) {}
 
+  async ionViewDidEnter() {
+		console.log("DidEnter");
+		await this.loadItems();
+		console.log("After did enter");
+  }
+  
   ngOnInit() {
-		if ( this.authService.userDetails() ) {
-      this.userEmail = this.authService.userDetails().email;
       this.loadItems();
-		} else {
-			this.navCtrl.navigateBack('');
-    }
   }
 
   async loadItems() {
