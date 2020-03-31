@@ -21,14 +21,21 @@ ion-card {
 
 ion-card-subtitle {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  text-transform: capitalize;
   justify-content: center;
+  align-items: center;
+}
+
+ion-icon {
+  padding-top: 5px;
+  zoom: 1.1;
 }
 
 ion-card-subtitle h4 {
   font-family: 'Raleway';
-  border-bottom: 1px solid blue;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-bottom: 1px solid #0278C2;
 }
 
 ion-card-content h2 {
@@ -49,8 +56,8 @@ ion-item {
 
 ion-item-sliding {
   background-color: var(--ion-color-primary-contrast);
-  border-top: 1px solid #3880ff;
-  border-bottom: 1px solid #3880ff;
+  border-top: 1px solid #0278C2;
+  border-bottom: 1px solid #0278C2;
 }
 
 ion-label {
